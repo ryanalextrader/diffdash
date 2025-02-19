@@ -4,6 +4,22 @@
             Diffdash
         </title>
         <link rel="stylesheet" href="style.css">
+
+        <script type="text/javascript">
+            var cur_mock = 1
+            function cycleClick(num){
+                var d = document.getElementById('MockDisplay')
+                cur_mock += num
+                if(cur_mock < 1){
+                    cur_mock = 5
+                }
+                if(cur_mock > 5){
+                    cur_mock = 1
+                }
+                d.src = ("Mock" + cur_mock.toString() + ".jpeg")
+            }    
+        </script>
+
     </head>
     
     <style>
@@ -13,6 +29,17 @@
             width: 20%;
             padding: 5px;
         }
+
+        button {
+            moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            border-width:thin;
+            width:36px;
+            margin-left:5px;
+            margin-right:5px;
+            margin-top:3px;
+            margin-bottom:3px;
+	    }
 
     </style>
 
@@ -49,17 +76,9 @@
             For questions that ask users to respond with equations, a math keyboard will be provided to the user. </pre>
         <h4><a href="./diffdash-team.html">Meet Our Team</a></h4>
         <h4><i>Mock Screenshots</i></h4>
-        <div class="column">
-            <img src="Mock1.jpeg" alt="Mock 1" width = "215" height ="264" >
-        </div>
-        <div class="column">
-            <img src="Mock2.jpeg" alt="Mock 2" width = "215" height ="264" >
-        </div>
-        <div class="column">
-            <img src="Mock3.jpeg" alt="Mock 3" width = "215" height ="264" >
-        </div>
-        <div class="column">
-            <img src="Mock4.jpeg" alt="Mock 4" width = "415" height ="264" >
+        <button class="cycle" onclick="cycleClick(-1)"><</button>
+        <img id="MockDisplay" src="Mock1.jpeg" alt="Mock 1" width = "215" height ="264" >
+        <button class="cycle" onclick="cycleClick(1)">></button>
         </div> 
     </body>
 </html>
